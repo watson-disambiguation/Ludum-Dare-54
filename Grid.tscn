@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ben400bu5b66g"]
+
+[ext_resource type="Script" path="res://Grid.gd" id="1_ekbsr"]
+
+[node name="Grid" type="Node2D"]
+position = Vector2(241, 339)
+script = ExtResource("1_ekbsr")
+width = 6
+height = 5
