@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RobotPart" load_steps=4 format=3 uid="uid://c6vpvw1u6h4ib"]
+
+[ext_resource type="Script" path="res://Scripts/part.gd" id="1_eqhx0"]
+[ext_resource type="Texture2D" uid="uid://b10rqg5tf1fra" path="res://Sprites/LaserGun.png" id="2_p0edn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elle5"]
+size = Vector2(64, 96)
+
+[resource]
+script = ExtResource("1_eqhx0")
+value = 2
+shape = SubResource("RectangleShape2D_elle5")
+layout = [[0, 1], [1, 1], [0, 1]]
+sprite = ExtResource("2_p0edn")

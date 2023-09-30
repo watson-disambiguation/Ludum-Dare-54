@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RobotPart" load_steps=4 format=3 uid="uid://7hjx11ki1haf"]
+
+[ext_resource type="Script" path="res://Scripts/part.gd" id="1_vami0"]
+[ext_resource type="Texture2D" uid="uid://bx8k4ng5wsvsh" path="res://Sprites/Engine.png" id="2_vhl3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elle5"]
+size = Vector2(64, 64)
+
+[resource]
+script = ExtResource("1_vami0")
+value = 1
+shape = SubResource("RectangleShape2D_elle5")
+layout = [[1, 1], [1, 1]]
+sprite = ExtResource("2_vhl3i")

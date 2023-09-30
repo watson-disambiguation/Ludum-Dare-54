@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LudumDare54"
-run/main_scene="res://main.tscn"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -31,3 +31,4 @@ click={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.52549, 0.52549, 0.52549, 1)

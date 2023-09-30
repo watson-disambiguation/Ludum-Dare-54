@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RobotPart" load_steps=2 format=3 uid="uid://cvi5gs7qyx6q5"]
+
+[ext_resource type="Script" path="res://Scripts/part.gd" id="1_ranvx"]
+
+[resource]
+script = ExtResource("1_ranvx")
+value = 1
+layout = [[1, 1], [1, 1]]

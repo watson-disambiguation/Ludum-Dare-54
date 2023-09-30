@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ben400bu5b66g"]
+
+[ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_ekbsr"]
+[ext_resource type="Texture2D" uid="uid://48vy15hgch2k" path="res://Sprites/Robot.png" id="2_xom1g"]
+
+[node name="Grid" type="Node2D"]
+position = Vector2(241, 339)
+script = ExtResource("1_ekbsr")
+width = 5
+height = 5
+
+[node name="Robot" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(64, 67)
+texture = ExtResource("2_xom1g")
