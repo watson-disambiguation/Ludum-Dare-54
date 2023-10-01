@@ -1,15 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://indfdksvoxxx"]
+[gd_scene load_steps=2 format=3 uid="uid://cu7cedpp8wmbr"]
 
-[ext_resource type="Script" path="res://PartNode.gd" id="1_qo4nx"]
+[ext_resource type="Script" path="res://Scripts/PartNode.gd" id="1_7x6xg"]
 
 [node name="PartNode" type="Node2D"]
-script = ExtResource("1_qo4nx")
+script = ExtResource("1_7x6xg")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

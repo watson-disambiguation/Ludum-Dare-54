@@ -2,21 +2,19 @@ extends Node2D
 
 class_name InventoryTile
 
-@onready var label: Label = $Label
 @onready var allowed_tile = $AllowedTile
 @onready var forbidden_tile = $ForbiddenTile
+@onready var label = $Label
+
 
 var _value = 0
 
 func setValue(value):
+	label.text = str(value)
 	_value = value
-	label.text = str(_value)
 	
 func getValue():
 	return _value
-
-func getSize():
-	return label.size.x * transform.get_scale().x
 	
 func setAllowed():
 	allowed_tile.visible = true

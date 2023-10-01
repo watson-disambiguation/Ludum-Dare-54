@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c31htdxdim7mb"]
+[gd_scene load_steps=8 format=3 uid="uid://c31htdxdim7mb"]
 
 [ext_resource type="PackedScene" uid="uid://ben400bu5b66g" path="res://Scenes/grid.tscn" id="1_5pf28"]
 [ext_resource type="PackedScene" uid="uid://5tw5rx45qf16" path="res://Scenes/input_manager.tscn" id="2_rnjeo"]
 [ext_resource type="Resource" uid="uid://7hjx11ki1haf" path="res://Resources/Engine.tres" id="3_re8jw"]
-[ext_resource type="PackedScene" uid="uid://indfdksvoxxx" path="res://Scenes/part_node.tscn" id="4_pme0i"]
+[ext_resource type="PackedScene" uid="uid://cu7cedpp8wmbr" path="res://Scenes/part_node.tscn" id="4_pme0i"]
 [ext_resource type="Resource" uid="uid://c6vpvw1u6h4ib" path="res://Resources/LaserGun.tres" id="5_5k7ju"]
+[ext_resource type="Resource" uid="uid://m5eof76thsg5" path="res://Resources/HealthTank.tres" id="6_ek0w4"]
+[ext_resource type="Script" path="res://Scripts/PartList.gd" id="7_ijb6i"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Grid" parent="." instance=ExtResource("1_5pf28")]
+position = Vector2(293, 133)
 
 [node name="InputManager" parent="." instance=ExtResource("2_rnjeo")]
 
@@ -16,6 +19,23 @@
 position = Vector2(130, 303)
 part = ExtResource("3_re8jw")
 
+[node name="PartNode4" parent="." instance=ExtResource("4_pme0i")]
+position = Vector2(130, 303)
+part = ExtResource("3_re8jw")
+
 [node name="PartNode2" parent="." instance=ExtResource("4_pme0i")]
 position = Vector2(176, 327)
 part = ExtResource("5_5k7ju")
+
+[node name="PartNode5" parent="." instance=ExtResource("4_pme0i")]
+position = Vector2(176, 327)
+part = ExtResource("5_5k7ju")
+
+[node name="PartNode3" parent="." instance=ExtResource("4_pme0i")]
+part = ExtResource("6_ek0w4")
+
+[node name="PartNode6" parent="." instance=ExtResource("4_pme0i")]
+part = ExtResource("6_ek0w4")
+
+[node name="PartList" type="Node" parent="."]
+script = ExtResource("7_ijb6i")
