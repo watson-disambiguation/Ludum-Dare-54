@@ -8,7 +8,8 @@ size = Vector2(64, 64)
 
 [resource]
 script = ExtResource("1_vami0")
-value = 1
-shape = SubResource("RectangleShape2D_elle5")
-layout = [[1, 1], [1, 1]]
+name = "Engine"
+description = "+100 Speed. An engine to power your treads"
 sprite = ExtResource("2_vhl3i")
+layout = [[1, 1], [1, 1]]
+shape = SubResource("RectangleShape2D_elle5")

@@ -42,3 +42,6 @@ func remove_item(index: int):
 		_smallest_free_index = index
 	print(_smallest_free_index)
 	return item
+	
+func get_array() -> Array:
+	return Array(_part_list)

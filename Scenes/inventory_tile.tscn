@@ -25,6 +25,7 @@ texture_filter = 1
 texture = ExtResource("4_ofhi0")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 5
 texture_filter = 1
 offset_left = -16.0

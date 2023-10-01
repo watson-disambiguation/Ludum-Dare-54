@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgu62c0kbgii"]
+
+[ext_resource type="Script" path="res://Scripts/ToolTip.gd" id="1_yff4q"]
+
+[node name="ToolTip" type="Control"]
+layout_mode = 3
+anchor_right = 0.215
+anchor_bottom = 0.358
+offset_right = 0.199997
+offset_bottom = 1.00999
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.41
+script = ExtResource("1_yff4q")
+
+[node name="Name" type="Label" parent="."]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.199
+offset_bottom = -0.0540028
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="Name"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Description" type="Label" parent="."]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.208
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.368
+grow_horizontal = 2
+text = "
+
+"
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Description"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

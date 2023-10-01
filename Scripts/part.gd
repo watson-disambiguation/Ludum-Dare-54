@@ -2,16 +2,18 @@ extends Resource
 
 class_name RobotPart 
 
-@export var shape: Shape2D
-
+@export var name: String
+@export var description: String
+@export var sprite: CompressedTexture2D
 @export var layout: Array = [[0]]:
 	set(new_value):
 		layout = new_value
 		layout2d = Array2D.fromArray(layout)
 	get:
 		return layout
+@export var shape: Shape2D
 
-@export var sprite: CompressedTexture2D
+
 
 var layout2d: Array2D
 

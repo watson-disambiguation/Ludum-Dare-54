@@ -8,7 +8,8 @@ size = Vector2(32, 64)
 
 [resource]
 script = ExtResource("1_8msde")
-value = 3
-shape = SubResource("RectangleShape2D_l8p5x")
-layout = [[1], [1]]
+name = "Health Tank"
+description = "+20 Max Health. Keeps the vitals intact."
 sprite = ExtResource("2_twp3y")
+layout = [[1], [1]]
+shape = SubResource("RectangleShape2D_l8p5x")

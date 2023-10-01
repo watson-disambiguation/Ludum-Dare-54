@@ -8,7 +8,8 @@ size = Vector2(64, 96)
 
 [resource]
 script = ExtResource("1_eqhx0")
-value = 2
-shape = SubResource("RectangleShape2D_elle5")
-layout = [[0, 1], [1, 1], [0, 1]]
+name = "Laser Gun"
+description = "+10 Damage, +15 Energy Consumption. Pew Pew!"
 sprite = ExtResource("2_p0edn")
+layout = [[0, 1], [1, 1], [0, 1]]
+shape = SubResource("RectangleShape2D_elle5")
