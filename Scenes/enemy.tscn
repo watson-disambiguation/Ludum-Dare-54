@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqy1go5f0j17"]
 
-[ext_resource type="Script" path="res://Scenes/Enemy.gd" id="1_8cejx"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8cejx"]
 [ext_resource type="Texture2D" uid="uid://b7s33jxwrdq2h" path="res://Sprites/RobotTreads.png" id="1_hfwsb"]
 [ext_resource type="Texture2D" uid="uid://dva4s4rtgtfeb" path="res://Sprites/EnemyRobot.png" id="2_sjp6n"]
 
