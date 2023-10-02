@@ -4,6 +4,7 @@ class_name Enemy
 
 
 @export var pickup_spawn_prob: float = 0.5
+@export var health_spawn_prob: float = 0.5
 @export var player_min_distance: float = 50
 @export var player_max_distance: float = 200
 @export var player_distance_range: float = 30
@@ -21,7 +22,13 @@ class_name Enemy
 @onready var enemy_body = $EnemyRobot
 @onready var game_over = $"../Game Over"
 @onready var pickup_scene = preload("res://Scenes/pickup.tscn")
+@onready var health_scene = preload("res://Scenes/health_pickup.tscn")
 @onready var bullet_scene = preload("res://Scenes/enemy_bullet.tscn")
+@onready var explode = preload("res://Audio/SFX/Explode_sfx_edited.wav")
+@onready var pew1 = preload("res://Audio/SFX/Pew1.wav")
+@onready var pew2 = preload("res://Audio/SFX/Pew2.wav")
+@onready var explode_audio_player = $"../SFX player"
+@onready var shoot_audio_player = $"AudioStreamPlayer"
 
 var _player_min_distance
 var _player_max_distance
@@ -61,6 +68,12 @@ func _try_shoot(delta):
 		shot_cooldown_timer -= delta
 
 func _shoot():
+	var choose = randi_range(0,1)
+	if choose:
+		shoot_audio_player.stream = pew1
+	else:
+		shoot_audio_player.stream = pew2
+	shoot_audio_player.play()
 	var direction = (player.position - position).normalized()
 	var bullet: EnemyBullet = bullet_scene.instantiate()
 	get_parent().add_child(bullet)
@@ -94,13 +107,21 @@ func take_damage(damage_taken: float):
 		die()
 	
 func die():
+	explode_audio_player.stream = explode
+	explode_audio_player.play()
+	game_over.enemies_killed += 1
 	if randf_range(0,1) < pickup_spawn_prob:
 		_spawn_pickup()
-		game_over.enemies_killed += 1
-		print(game_over.enemies_killed)
+	if randf_range(0,1) < health_spawn_prob:
+		_spawn_health()
 	queue_free()
 
 func _spawn_pickup():
 	var pickup = pickup_scene.instantiate()
 	get_parent().add_child(pickup)
 	pickup.position = position
+	
+func _spawn_health():
+	var health_pickup = health_scene.instantiate()
+	get_parent().add_child(health_pickup)
+	health_pickup.position = position

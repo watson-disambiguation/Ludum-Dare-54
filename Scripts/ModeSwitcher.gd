@@ -13,6 +13,8 @@ var start_button: Button
 func _ready():
 	start_button = $"MainMenu/StartButton"
 	start_button.button_up.connect(open_battle)
+	battle.set_current(false)
+	main_menu.set_current(true)
 
 func open_battle():
 	battle.set_current(true)

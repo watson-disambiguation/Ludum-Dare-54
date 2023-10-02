@@ -4,6 +4,10 @@ extends Node
 @onready var part_list = $"../../PartList"
 @onready var tool_tip: ToolTip = $"../ToolTip"
 @onready var menu: MenuManager = $".."
+@onready var sfx_player = $"../SFXPlayer"
+@onready var pickup = preload("res://Audio/SFX/Pickup.wav")
+@onready var drop = preload("res://Audio/SFX/Drop.wav")
+
 var hover_part: PartNode
 var holding_part: PartNode
 
@@ -17,6 +21,8 @@ func _input(event):
 		else:
 			if hover_part != null:
 				if event.is_action_pressed("main_click"):
+					sfx_player.stream = pickup
+					sfx_player.play()
 					if hover_part.placed:
 						_grid.removePart(hover_part.value)
 						part_list.remove_item(hover_part.value)
@@ -29,9 +35,11 @@ func _input(event):
 
 func _drop_part(event):
 	var in_bounds = _grid.hoverPart(event.position.x,event.position.y,holding_part.part)
+	sfx_player.stream = drop
 	if event.is_action_pressed("main_click"):
 		var index = part_list.get_free_index()
 		if _grid.placePart(event.position.x,event.position.y,holding_part.part, index):
+			sfx_player.play()
 			holding_part.position = _calc_place_pos(event.position)
 			holding_part.value = index
 			part_list.add_item(holding_part.part)
@@ -39,6 +47,7 @@ func _drop_part(event):
 			holding_part = null
 		# only drop the part if it isn't in the inventory
 		if not in_bounds:
+			sfx_player.play()
 			holding_part = null
 			
 func _calc_place_pos(pos: Vector2) -> Vector2:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddsej4ux53in2"]
+[gd_scene load_steps=8 format=3 uid="uid://ddsej4ux53in2"]
 
 [ext_resource type="PackedScene" uid="uid://cwjyi6ncdio23" path="res://Scenes/robot.tscn" id="1_ekjve"]
 [ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_x2iwc"]
 [ext_resource type="PackedScene" uid="uid://bsvpqfxcldl60" path="res://Scenes/enemy_spawner.tscn" id="3_g5fdq"]
 [ext_resource type="Script" path="res://Scenes/Status.gd" id="4_p6tpd"]
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="5_cjphm"]
+[ext_resource type="AudioStream" uid="uid://wrlbk6bcsn4j" path="res://Audio/Battle_Track_Edited.wav" id="6_a84af"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r1a8k"]
 font_size = 30
@@ -141,5 +142,11 @@ grow_horizontal = 2
 grow_vertical = 0
 disabled = true
 text = "Play Again"
+
+[node name="SFX player" type="AudioStreamPlayer" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_a84af")
+volume_db = -25.355
 
 [connection signal="button_up" from="Game Over/Restart" to="Game Over" method="restart"]

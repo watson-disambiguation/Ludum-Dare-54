@@ -15,7 +15,9 @@ size = Vector2(40, 42)
 [node name="Enemy" type="Node2D"]
 z_index = 1
 script = ExtResource("1_cm4mt")
+pickup_spawn_prob = 0.25
 max_health = 30.0
+damage = 5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_cuib0")
@@ -35,3 +37,5 @@ texture = ExtResource("1_hfwsb")
 [node name="EnemyRobot" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_sjp6n")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -30,12 +30,16 @@ var bullet_speed: float
 var health: float: 
 	set(value):
 		health = value
+		if health > max_health:
+			health = max_health
 		status.display_health(health,max_health)
 	get: 
 		return health
 var energy: float:
 	set(value):
 		energy = value
+		if energy > max_energy:
+			energy = max_energy
 		status.display_energy(energy,max_energy)
 	get: 
 		return energy
@@ -52,7 +56,7 @@ func _input(event):
 	if (not battle.is_current) or (is_dead):
 		return
 	if event.is_action_pressed("main_click"):
-		if energy > 0:
+		if energy > energy_consumption:
 			shoot((event.position - position).normalized())
 			energy -= energy_consumption
 			if energy <= 0:

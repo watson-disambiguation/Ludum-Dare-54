@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://drd3b8373f6fs"]
+[gd_scene load_steps=13 format=3 uid="uid://drd3b8373f6fs"]
 
 [ext_resource type="PackedScene" uid="uid://ben400bu5b66g" path="res://Scenes/grid.tscn" id="1_5pf28"]
 [ext_resource type="Script" path="res://Scripts/MenuManager.gd" id="1_37d03"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/PartSpawner.gd" id="6_u7v1w"]
 [ext_resource type="PackedScene" uid="uid://cgu62c0kbgii" path="res://Scenes/tool_tip.tscn" id="8_hy7bc"]
 [ext_resource type="AudioStream" uid="uid://cxb1dmd3m0xrr" path="res://Audio/Menu_Track.wav" id="9_i4jo6"]
+[ext_resource type="Resource" uid="uid://dlgcuofhd16ay" path="res://Resources/Battery.tres" id="11_busmm"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_ptmwg"]
 
@@ -44,7 +45,7 @@ offset_bottom = 384.0
 text = "GO!"
 icon = SubResource("ImageTexture_ptmwg")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_i4jo6")
 
 [node name="PartSpawner" type="Node2D" parent="."]
@@ -53,4 +54,19 @@ script = ExtResource("6_u7v1w")
 spawnable_parts = Array[Resource]([ExtResource("3_re8jw"), ExtResource("5_5k7ju"), ExtResource("6_ek0w4")])
 
 [node name="PartNode" parent="." instance=ExtResource("4_pme0i")]
+position = Vector2(191, 252)
 part = ExtResource("3_re8jw")
+
+[node name="PartNode2" parent="." instance=ExtResource("4_pme0i")]
+position = Vector2(104, 212)
+part = ExtResource("6_ek0w4")
+
+[node name="PartNode3" parent="." instance=ExtResource("4_pme0i")]
+position = Vector2(171, 143)
+part = ExtResource("5_5k7ju")
+
+[node name="PartNode4" parent="." instance=ExtResource("4_pme0i")]
+position = Vector2(115, 164)
+part = ExtResource("11_busmm")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
