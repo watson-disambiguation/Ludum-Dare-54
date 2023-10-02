@@ -2,15 +2,19 @@ extends Node2D
 
 class_name EnemySpawner
 
+@onready var battle: BattleManager = $".."
+
 @export var min_spawn_dist_x: float = 360
 @export var max_spawn_dist_x: float = 400
 @export var min_spawn_dist_y: float = 203
 @export var max_spawn_dist_y: float = 240
-@export var spawn_interval: float = 3
+@export var min_spawn_interval: float = 1
+@export var max_spawn_interval: float = 5
 
 @onready var enemy_scene = preload("res://Scenes/enemy.tscn")
 
 var _time_since_spawn = 0
+var _spawn_interval = max_spawn_interval
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -18,11 +22,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not battle.is_current:
+		return
 	if _time_since_spawn > 0:
 		_time_since_spawn -= delta
 	else:
-		_time_since_spawn = spawn_interval
+		_time_since_spawn = _spawn_interval
 		spawn()
+		_spawn_interval
 	
 	
 func spawn():

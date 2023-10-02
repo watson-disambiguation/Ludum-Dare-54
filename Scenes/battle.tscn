@@ -8,5 +8,9 @@
 script = ExtResource("1_x2iwc")
 
 [node name="Robot" parent="." instance=ExtResource("1_ekjve")]
+base_speed = 60.0
+base_max_health = 30.0
+base_max_energy = 60.0
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("3_g5fdq")]
+position = Vector2(362, 196)

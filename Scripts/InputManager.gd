@@ -3,11 +3,13 @@ extends Node
 @onready var _grid: Grid = $"../Grid"
 @onready var part_list = $"../../PartList"
 @onready var tool_tip: ToolTip = $"../ToolTip"
-
+@onready var menu: MenuManager = $".."
 var hover_part: PartNode
 var holding_part: PartNode
 
 func _input(event):
+	if not menu.is_current:
+		return
 	if event is InputEventMouse:
 		if holding_part != null:
 			holding_part.position = event.position
@@ -24,6 +26,7 @@ func _input(event):
 			tool_tip.set_tooltip(event.position,hover_part.part.name,hover_part.part.description)
 		if event.is_action_released("secondary_click"):
 			tool_tip.hide_tooltip()
+
 func _drop_part(event):
 	var in_bounds = _grid.hoverPart(event.position.x,event.position.y,holding_part.part)
 	if event.is_action_pressed("main_click"):

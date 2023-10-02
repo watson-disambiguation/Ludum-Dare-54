@@ -2,6 +2,7 @@ extends Node2D
 
 class_name Enemy
 
+
 @export var pickup_spawn_prob: float = 0.5
 @export var player_min_distance: float = 50
 @export var player_max_distance: float = 200
@@ -11,6 +12,7 @@ class_name Enemy
 @export var speed: float = 60
 @export var max_health: float = 60
 
+@onready var battle: BattleManager = $".."
 @onready var player = $"../Robot"
 @onready var enemy_treads = $EnemyTreads
 @onready var enemy_body = $EnemyRobot
@@ -36,6 +38,8 @@ var _circle_dir = 0
 var _range_update_timer = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not battle.is_current:
+		return
 	_update_range(delta)
 	var move_dir = Vector2.ZERO
 	var seperation: Vector2 = player.position - position
@@ -57,6 +61,7 @@ func _process(delta):
 	
 func damage(damage: float):
 	health -= damage
+	print(health)
 	if health <= 0:
 		die()
 	
