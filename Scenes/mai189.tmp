@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://br7n6gjnusgaq"]
 
-[ext_resource type="PackedScene" uid="uid://drd3b8373f6fs" path="res://Scenes/inv_menu.tscn" id="1_2dv40"]
+[ext_resource type="PackedScene" uid="uid://c31htdxdim7mb" path="res://Scenes/inv_menu.tscn" id="1_2dv40"]
 [ext_resource type="Script" path="res://Scripts/ModeSwitcher.gd" id="1_tj7pt"]
 [ext_resource type="PackedScene" uid="uid://ddsej4ux53in2" path="res://Scenes/battle.tscn" id="2_2asjo"]
 [ext_resource type="Script" path="res://Scripts/PartList.gd" id="7_ijb6i"]

@@ -1,7 +1,7 @@
 extends Node
 
 @onready var _grid: Grid = $"../Grid"
-@onready var part_list = $"../PartList"
+@onready var part_list = $"../../PartList"
 @onready var tool_tip: ToolTip = $"../ToolTip"
 
 var hover_part: PartNode

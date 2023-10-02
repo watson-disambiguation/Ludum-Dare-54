@@ -1,0 +1,34 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://ci0xb3psiw8ek"]
+
+[ext_resource type="Texture2D" uid="uid://iocjwitj2la0" path="res://Sprites/Concrete.png" id="1_fa2xf"]
+[ext_resource type="Texture2D" uid="uid://b0ts5qftnx2jn" path="res://Sprites/CrackedConcrete2.png" id="2_4o34o"]
+[ext_resource type="Texture2D" uid="uid://j8phxkvq6lc0" path="res://Sprites/CrackedConcrete.png" id="3_1a4gx"]
+[ext_resource type="Texture2D" uid="uid://cfiexlx2ix8ru" path="res://Sprites/RustyWall.png" id="4_ol77t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qt7el"]
+texture = ExtResource("1_fa2xf")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 4
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6n01"]
+resource_name = "Concrete"
+texture = ExtResource("2_4o34o")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dco4"]
+texture = ExtResource("3_1a4gx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rr1r8"]
+texture = ExtResource("4_ol77t")
+texture_region_size = Vector2i(32, 32)
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_qt7el")
+sources/1 = SubResource("TileSetAtlasSource_g6n01")
+sources/2 = SubResource("TileSetAtlasSource_2dco4")
+sources/3 = SubResource("TileSetAtlasSource_rr1r8")

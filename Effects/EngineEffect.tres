@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ciohffimy0hrf"]
+
+[sub_resource type="GDScript" id="GDScript_1tg3b"]
+script/source = "@export var speed_bonus: float = 100
+
+func do_effect(robot: Robot):
+	robot.speed += speed_bonus"
+
+[resource]
+script = SubResource("GDScript_1tg3b")
+speed_bonus = 100.0

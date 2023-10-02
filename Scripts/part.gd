@@ -2,6 +2,7 @@ extends Resource
 
 class_name RobotPart 
 
+
 @export var name: String
 @export var description: String
 @export var sprite: CompressedTexture2D
@@ -12,13 +13,17 @@ class_name RobotPart
 	get:
 		return layout
 @export var shape: Shape2D
-
+@export var effect: Resource
 
 
 var layout2d: Array2D
 
 func _init():
 	layout2d = Array2D.fromArray(layout)
+	
+func do_effect(robot: Robot):
+	if effect != null and effect.has_method("do_effect"):
+		effect.do_effect(robot)
 
 
 	

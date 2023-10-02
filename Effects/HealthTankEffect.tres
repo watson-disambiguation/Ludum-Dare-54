@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b5e85132ffnjw"]
+
+[sub_resource type="GDScript" id="GDScript_m81dp"]
+script/source = "@export var health_bonus: float
+
+func do_effect(robot: Robot):
+	robot.max_health += health_bonus"
+
+[resource]
+script = SubResource("GDScript_m81dp")
+health_bonus = 0.0

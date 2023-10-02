@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddsej4ux53in2"]
+
+[ext_resource type="PackedScene" uid="uid://cwjyi6ncdio23" path="res://Scenes/robot.tscn" id="1_ekjve"]
+[ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="1_x2iwc"]
+[ext_resource type="PackedScene" uid="uid://dqy1go5f0j17" path="res://Scenes/enemy.tscn" id="4_csd5q"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_x2iwc")
+
+[node name="Robot" parent="." instance=ExtResource("1_ekjve")]
+
+[node name="Enemy" parent="." instance=ExtResource("4_csd5q")]
+position = Vector2(216, 206)

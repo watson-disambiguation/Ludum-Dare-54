@@ -10,12 +10,14 @@ class_name Robot
 @export var base_health_regen: float = 0
 @export var base_energy_regen: float = 0
 @export var base_damage: float = 10
+@export var base_energy_consumption: float
 
 var speed: float
 var max_health: float
 var health: float
 var max_energy: float
 var energy: float
+var energy_consumption: float
 var energy_regen: float
 var health_regen: float
 var damage: float
@@ -45,4 +47,12 @@ func _reset():
 		energy = max_energy
 	health_regen = base_health_regen
 	energy_regen = base_energy_regen
+	energy_consumption = base_energy_consumption
+	
+func apply_parts(part_list: Array): 
+	_reset()
+	for part in part_list:
+		if(part != null):
+			part.do_effect(self)
+		
 	

@@ -4,7 +4,7 @@ extends Node2D
 
 class_name PartNode
 @export var part: RobotPart
-@export var placed = false
+var placed = false
 
 var value: int
 
@@ -16,10 +16,15 @@ var value: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var i = part.sprite.get_image()
-	sprite_2d.texture = ImageTexture.create_from_image(i)
-	collision_shape_2d.shape = part.shape
-	
+	initialize()
+
+func initialize():
+	sprite_2d = $Sprite2D
+	area_2d = $Area2D
+	collision_shape_2d = $Area2D/CollisionShape2D
+	if part != null: 
+		sprite_2d.texture = ImageTexture.create_from_image(part.sprite.get_image())
+		collision_shape_2d.shape = part.shape
 
 func _on_area_2d_mouse_entered():
 	input_manager.hover_part = self
