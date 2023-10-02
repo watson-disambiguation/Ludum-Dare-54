@@ -11,18 +11,25 @@ class_name Enemy
 @export var max_player_dist_update_time: float = 10
 @export var speed: float = 60
 @export var max_health: float = 60
+@export var shot_cooldown: float = 1
+@export var bullet_speed = 200
+@export var damage = 10
 
 @onready var battle: BattleManager = $".."
 @onready var player = $"../Robot"
 @onready var enemy_treads = $EnemyTreads
 @onready var enemy_body = $EnemyRobot
+@onready var game_over = $"../Game Over"
 @onready var pickup_scene = preload("res://Scenes/pickup.tscn")
+@onready var bullet_scene = preload("res://Scenes/enemy_bullet.tscn")
 
 var _player_min_distance
 var _player_max_distance
 var health = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	shot_cooldown_timer = shot_cooldown
 	health = max_health
 	_update_range(0)
 
@@ -41,6 +48,27 @@ func _process(delta):
 	if not battle.is_current:
 		return
 	_update_range(delta)
+	_move(delta)
+	_try_shoot(delta)
+
+var shot_cooldown_timer: float
+
+func _try_shoot(delta):
+	if shot_cooldown_timer < 0:
+		_shoot()
+		shot_cooldown_timer = shot_cooldown
+	else:
+		shot_cooldown_timer -= delta
+
+func _shoot():
+	var direction = (player.position - position).normalized()
+	var bullet: EnemyBullet = bullet_scene.instantiate()
+	get_parent().add_child(bullet)
+	bullet.velocity = bullet_speed * direction
+	bullet.position = position
+	bullet.damage = damage
+
+func _move(delta):
 	var move_dir = Vector2.ZERO
 	var seperation: Vector2 = player.position - position
 	var player_dir = seperation.normalized()
@@ -59,8 +87,8 @@ func _process(delta):
 	enemy_treads.look_at(position + move_dir)
 	position += move_dir * delta * speed
 	
-func damage(damage: float):
-	health -= damage
+func take_damage(damage_taken: float):
+	health -= damage_taken
 	print(health)
 	if health <= 0:
 		die()
@@ -68,6 +96,8 @@ func damage(damage: float):
 func die():
 	if randf_range(0,1) < pickup_spawn_prob:
 		_spawn_pickup()
+		game_over.enemies_killed += 1
+		print(game_over.enemies_killed)
 	queue_free()
 
 func _spawn_pickup():

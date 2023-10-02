@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgc5wd65xsrd4"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyBullet.gd" id="1_s6unx"]
+[ext_resource type="Texture2D" uid="uid://3iu5rbs8qb0k" path="res://Sprites/EnemyBolt.png" id="2_j6b71"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mtttc"]
+radius = 5.0
+
+[node name="EnemyBullet" type="Node2D"]
+script = ExtResource("1_s6unx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_j6b71")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_mtttc")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="RobotPart" load_steps=4 format=3 uid="uid://c6vpvw1u6h4ib"]
+[gd_resource type="Resource" script_class="RobotPart" load_steps=5 format=3 uid="uid://c6vpvw1u6h4ib"]
 
+[ext_resource type="Resource" uid="uid://dxmy3mdmel1g2" path="res://Effects/LaserGunEffect.tres" id="1_0aho1"]
 [ext_resource type="Script" path="res://Scripts/part.gd" id="1_eqhx0"]
 [ext_resource type="Texture2D" uid="uid://b10rqg5tf1fra" path="res://Sprites/LaserGun.png" id="2_p0edn"]
 
@@ -13,3 +14,4 @@ description = "+10 Damage, +15 Energy Consumption. Pew Pew!"
 sprite = ExtResource("2_p0edn")
 layout = [[0, 1], [1, 1], [0, 1]]
 shape = SubResource("RectangleShape2D_elle5")
+effect = ExtResource("1_0aho1")

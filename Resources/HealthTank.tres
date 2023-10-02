@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="RobotPart" load_steps=4 format=3 uid="uid://m5eof76thsg5"]
+[gd_resource type="Resource" script_class="RobotPart" load_steps=5 format=3 uid="uid://m5eof76thsg5"]
 
 [ext_resource type="Script" path="res://Scripts/part.gd" id="1_8msde"]
+[ext_resource type="Resource" uid="uid://b5e85132ffnjw" path="res://Effects/HealthTankEffect.tres" id="1_enxti"]
 [ext_resource type="Texture2D" uid="uid://426ci48m131u" path="res://Sprites/HealthTank.png" id="2_twp3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8p5x"]
@@ -9,7 +10,8 @@ size = Vector2(32, 64)
 [resource]
 script = ExtResource("1_8msde")
 name = "Health Tank"
-description = "+20 Max Health. Keeps the vitals intact."
+description = "+30 Max Health. Keeps the vitals intact."
 sprite = ExtResource("2_twp3y")
 layout = [[1], [1]]
 shape = SubResource("RectangleShape2D_l8p5x")
+effect = ExtResource("1_enxti")

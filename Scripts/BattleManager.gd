@@ -8,3 +8,4 @@ var is_current: bool = false
 func set_current(value: bool):
 	visible = value
 	is_current = value
+

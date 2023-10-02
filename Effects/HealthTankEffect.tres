@@ -8,4 +8,4 @@ func do_effect(robot: Robot):
 
 [resource]
 script = SubResource("GDScript_m81dp")
-health_bonus = 0.0
+health_bonus = 30.0

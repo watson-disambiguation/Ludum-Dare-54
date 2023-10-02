@@ -13,6 +13,7 @@ size = Vector2(40, 42)
 size = Vector2(40, 42)
 
 [node name="Enemy" type="Node2D"]
+z_index = 1
 script = ExtResource("1_cm4mt")
 max_health = 30.0
 
